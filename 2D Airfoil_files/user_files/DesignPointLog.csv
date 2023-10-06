@@ -1,0 +1,13 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by Ansys Workbench.
+# Project name: wbnew
+# Creation date: 10/06/2023 20:58:20
+# 
+# 10/06/2023 20:58:20
+# The parameters defined in the project are:
+# ,P1 - AoA [degree],P2 - InletVelocity [m s^-1],P3 - Lift [N],P4 - Drag [N],P5 - Coefficeint of Lift [kg m^-1],P6 - Coefficient of Drag [kg m^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2,P3,P4,P5,P6
+DP 0,0,2.5,0.718777,0.0621531,0.18776215510204081,0.020294889795918366
+DP 1,5,2.5,2.60284,0.0752053,0.67992555102040808,0.02455683265306122

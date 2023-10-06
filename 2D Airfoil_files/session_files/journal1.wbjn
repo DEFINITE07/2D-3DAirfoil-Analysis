@@ -1,0 +1,156 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+template1 = GetTemplate(TemplateName="Fluid Flow")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+meshComponent1.Update(AllDependencies=True)
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+mesh1.Exit()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(Precision="Double", EnvPath={}, RunParallel=True, NumberOfProcessorsMeshing=2, NumberOfProcessors=2))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Models\"))(cx-gui-do cx-set-list-selections \"Models*Table1*List1(Models)\" '( 2))(cx-gui-do cx-activate-item \"Models*Table1*List1(Models)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Table1*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)")(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox6(k-epsilon Model)*Realizable" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox6(k-epsilon Model)*Realizable")(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions\"))(cx-gui-do cx-set-list-selections \"Boundary Conditions*Table1*List2(Zone)\" '( 1))(cx-gui-do cx-activate-item \"Boundary Conditions*Table1*List2(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*Table4*ButtonBox1*PushButton1(Edit)")(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 1)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 2)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 3)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 4)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 5)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 6)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 7)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 8)(cx-gui-do cx-activate-tab-index "Velocity Inlet*Frame2*Frame2" 0)')
+setup1.SendCommand(Command="(cx-gui-do cx-enable-apply-button \"Velocity Inlet\")(cx-gui-do create-new-param \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*Table9*ExpressionEntry1(Velocity Magnitude)\" 0 \"velocity\")(cx-gui-do cx-activate-tab-index \"Expression*Table1*Frame1\" 0)(cx-gui-do cx-activate-tab-index \"Expression*Table1*Frame1\" 1)(cx-gui-do cx-activate-tab-index \"Expression*Table1*Frame1\" 0)(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"0 [m/s]\" . 1))(cx-gui-do cx-set-text-entry \"Parameter Expression*Table1*TextEntry2(Name)\" \"InletVelocity\")(cx-gui-do cx-activate-item \"Parameter Expression*Table1*TextEntry2(Name)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"2.5 [m/s]\" . 1))(cx-gui-do cx-set-expression-entry \"Parameter Expression*Table1*ExpressionEntry3(Definition)\" '(\"2.5 [m/s]\" . 1))(cx-gui-do cx-activate-item \"Parameter Expression*Table1*ExpressionEntry3(Definition)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Parameter Expression*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*Table9*ExpressionEntry1(Velocity Magnitude)\" '(\"InletVelocity\" . 1))(cx-gui-do cx-set-list-selections \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*DropDownList7(Velocity Specification Method)\" '( 0))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*DropDownList7(Velocity Specification Method)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*Table9*ExpressionEntry1(Velocity Magnitude)\" '(\"InletVelocity\" . 1))(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*Table9*ExpressionEntry1(Velocity Magnitude)\" '(\"InletVelocity\" . 1))(cx-gui-do cx-activate-item \"Velocity Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Velocity Inlet*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Velocity Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Initialization\"))(cx-gui-do cx-set-toggle-button2 \"Solution Initialization*Table1*ToggleBox3(Initialization Methods)*Standard Initialization\" #t)(cx-gui-do cx-activate-item \"Solution Initialization*Table1*ToggleBox3(Initialization Methods)*Standard Initialization\")(cx-gui-do cx-set-list-selections \"Solution Initialization*Table1*DropDownList1(Compute from)\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*DropDownList1(Compute from)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)" 1000)(cx-gui-do cx-activate-item "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 1.00001, 0, 0
+    Scale = 0.0593796
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      Lift = force_y()@airfoil
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = Lift
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      Drag = force_x()@airfoil
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = Drag
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: Lift
+    Method = Expression
+    Expression Name = Lift
+  END
+END""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: Drag
+    Method = Expression
+    Expression Name = Drag
+  END
+END""")
+parameter1 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="P3/(",
+    DisplayText="Output Parameter")
+parameter2 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="P3/(",
+    DisplayText="Output Parameter")
+parameter2.Delete()
+parameter1.Delete()
+parameter3 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="P3/(0.5*1.225*(P2**2))",
+    DisplayText="Output Parameter")
+parameter3.DisplayText = "Coefficeint of Lift"
+parameter4 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="P4/(0.4*1.225*(P2**2))",
+    DisplayText="Output Parameter")
+parameter4.DisplayText = "Coefficient of Drag"
+designPoint1 = Parameters.GetDesignPoint(Name="0")
+designPoint2 = designPoint1.Duplicate()
+parameter5 = Parameters.GetParameter(Name="P1")
+designPoint2.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="5 [degree]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint2])
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"')
+parameter6 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="P5/P6",
+    DisplayText="Output Parameter")
+parameter6.DisplayText = "CL/CD"
+Save(Overwrite=True)
